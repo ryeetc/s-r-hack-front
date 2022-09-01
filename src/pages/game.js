@@ -78,9 +78,8 @@ const Game = ({ name }) => {
         </div>
        
         <div className="win__container">
-            <div className="win__score"><h2>Score: {score}</h2> </div> 
+            <div className="win__score"><h2>{name}'s Score: {score}</h2> </div> 
             <div className="card__container">
-                {console.log(name)}
                 {(gamesPlayed < 3) &&    <> <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
                 <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/> </>}
             </div>

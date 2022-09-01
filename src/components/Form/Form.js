@@ -20,9 +20,9 @@ function Form({ setName, name }) {
   return (
     <div className="form__container">
       <form className="form" action="" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter Your Name:</label>
-        <input type="text" name="name" />
-        <button> Enter </button>
+        <label className="form__label" htmlFor="name">Enter Your Name:</label>
+        <input className="form__input" type="text" name="name" />
+        <button className="form__button"> Enter </button>
       </form>
     </div>
   );
