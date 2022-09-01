@@ -78,15 +78,15 @@ const Game = ({ name }) => {
         </div>
        
         <div className="win__container">
+            <div className="win__score"><h2>Score: {score}</h2> </div> 
             <div className="card__container">
                 {console.log(name)}
                 {(gamesPlayed < 3) &&    <> <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
                 <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/> </>}
-            
-                {console.log(`games played:${gamesPlayed}`)}
             </div>
             {success && <button className="success" onClick={handleWinClick}>NEXT</button>}
             {failure && <button className="success" onClick={handleLoseClick}>NEXT</button>}
+            
            
         </div>
         </>

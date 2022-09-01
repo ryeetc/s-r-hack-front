@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import "./Gamecard.scss"
 
 const Gamecard = ({card, handleClick, selected}) => {
