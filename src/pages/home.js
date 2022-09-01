@@ -9,7 +9,7 @@ const Home = () => {
             <div className="main__container">
                 <h1 className="main__title">Welcome To BestFlix</h1>
                 <p className="main__desc">Guess the movie with the higher review score</p>
-                <Link to="/game" className="main__link">Click Here To Play</Link>
+                <Link to="/register" className="main__link">Click Here To Play</Link>
             </div>
             <div className="flip__container">
                 <div className="flip__holder">

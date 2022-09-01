@@ -6,7 +6,7 @@ import "./game.scss"
 import Modal from "../components/Modal/Modal"
 
 
-const Game = () => {
+const Game = ({ name }) => {
 
     const [movie, setMovie] = useState(null);
     const [selected, setSelected] = useState(false);
@@ -79,6 +79,7 @@ const Game = () => {
        
         <div className="win__container">
             <div className="card__container">
+                {console.log(name)}
                 {(gamesPlayed < 3) &&    <> <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
                 <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/> </>}
             
