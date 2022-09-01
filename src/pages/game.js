@@ -1,21 +1,41 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import axios from "axios"
 import Gamecard from "../components/gamecard/Gamecard"
 import "./game.scss"
+import Modal from "../components/Modal/Modal"
+
 
 const Game = () => {
 
-    const [movie, setMovie] = useState(null)
-    const [selected, setSelected] = useState(false)
-    const [success, setSuccess] = useState(false)
-    const [rerender, setRerender] = useState(false)
-    let score = 0
+    const [movie, setMovie] = useState(null);
+    const [selected, setSelected] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
+    const [rerender, setRerender] = useState(false);
+    
+    const [score, setScore] = useState(0);
+    const [gamesPlayed, setGamesPlayed] = useState(0);
+
+
 
     const handleWinClick = () => {
         setSuccess(false)
         setSelected(false)
         setRerender(true)
+        setScore(score +1)
+        setGamesPlayed(gamesPlayed +1)
+        if (rerender) {
+            setRerender(false)
+        }
+
+    }
+
+    const handleLoseClick = () => {
+        setFailure(false)
+        setSelected(false)
+        setRerender(true)
+        setGamesPlayed(gamesPlayed +1)
         if (rerender) {
             setRerender(false)
         }
@@ -29,7 +49,8 @@ const Game = () => {
         })
        if (card.rating > unselectedCard[0].rating) {
         setSuccess(true)
-        score++
+       } else{
+        setFailure(true)
        }
        console.log(score)
         return cardId
@@ -41,6 +62,7 @@ const Game = () => {
             .then((response)=>{
                 setMovie(response.data)
             })
+            
     },[rerender])
 
     if(!movie) {
@@ -50,15 +72,30 @@ const Game = () => {
     }
 
     return (
+        <>
+        <div className="show-modal">
+             {(gamesPlayed === 3) && <Modal score={score} />}
+        </div>
+       
         <div className="win__container">
             <div className="card__container">
-                <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
-                <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/>
+                {(gamesPlayed < 3) &&    <> <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
+                <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/> </>}
+            
+                {console.log(`games played:${gamesPlayed}`)}
             </div>
-            {success && <Link to="/game" className="success" onClick={handleWinClick}>NEXT</Link>}
+            {success && <button className="success" onClick={handleWinClick}>NEXT</button>}
+            {failure && <button className="success" onClick={handleLoseClick}>NEXT</button>}
+           
         </div>
+        </>
 
-    )
+)
 }
 
-export default Game
+export default Game;
+
+
+
+
+{/* <div className="win__score"><h2>Score: {score}</h2> </div> */}
