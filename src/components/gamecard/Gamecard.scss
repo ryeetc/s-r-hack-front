@@ -1,3 +1,5 @@
+@use "../../mixins" as *;
+
 .card__holder {
     display: flex;
     justify-content:space-between;
@@ -24,10 +26,23 @@
     height: 100%;
     border-radius: 10px;
     box-shadow: 3px 3px #165572;
+    background-position: center;
+    background-size: cover;
+    height: 60%;
+
+
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 3px 3px #165572;
+    }
     
 
     &__rating {
-        background-color: #165572;
+        background-image: linear-gradient(#165572, black);
         border-radius: 4px;
         padding: 0.5rem;
         color: #D4DCE0;
@@ -35,7 +50,7 @@
     }
 
     &__title {
-        background-color: #165572;
+        background-image: linear-gradient(#165572, black);
         border-radius: 4px;
         font-size: 1.5rem;
         padding: 0.5rem;
