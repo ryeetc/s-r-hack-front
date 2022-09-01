@@ -6,6 +6,9 @@ function Form({ setName, name }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (event.target.name.value === "") {
+      return 
+    }
     setName(event.target.name.value);
     console.log(event.target.name.value);
     // window.location.replace("http://localhost:3000/game");

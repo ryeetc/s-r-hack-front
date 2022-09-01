@@ -4,6 +4,10 @@
     display: flex;
     justify-content: space-between;
 
+    &__link {
+        text-decoration: none;
+    }
+
     &__title {
         color: #D4DCE0;
     }
