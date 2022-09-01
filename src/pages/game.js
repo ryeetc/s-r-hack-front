@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import Gamecard from "../components/gamecard/Gamecard"
+import "./game.scss"
 
 const Game = () => {
 
@@ -54,7 +55,7 @@ const Game = () => {
                 <Gamecard handleClick={handleClick} selected={selected} card={movie[0]}/>
                 <Gamecard handleClick={handleClick} selected={selected} card={movie[1]}/>
             </div>
-            {success && <Link to="/game" onClick={handleWinClick}>WooHoo</Link>}
+            {success && <Link to="/game" className="success" onClick={handleWinClick}>NEXT</Link>}
         </div>
 
     )

@@ -1,0 +1,47 @@
+.card__holder {
+    display: flex;
+    justify-content:space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    gap: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 4px solid #165572;
+    margin-top: 10%;
+    &:hover {
+        transition: 0.5s;
+        box-shadow: 8px 8px #165572;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 3px 3px #165572;
+    
+
+    &__rating {
+        background-color: #165572;
+        border-radius: 4px;
+        padding: 0.5rem;
+        color: #D4DCE0;
+      
+    }
+
+    &__title {
+        background-color: #165572;
+        border-radius: 4px;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        text-align: center;
+        color: #D4DCE0;
+        
+    }
+    
+}

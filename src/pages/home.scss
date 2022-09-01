@@ -1,0 +1,48 @@
+@keyframes changewidth {
+    from {
+      scale: 1;
+    }
+  
+    to {
+      scale: 1.5;
+    }
+  }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+
+    &__title {
+        margin-top: 6rem;
+        background-color: #165572;
+        padding: 1rem;
+        border-radius: 10px;
+        color:#D4DCE0;
+    }
+
+    &__desc {
+        font-size: 1.5rem;
+        background-color: #165572;
+        color:#D4DCE0;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    &__link {
+        font-size: 1.5rem;
+        background-color: #165572;
+        color:#D4DCE0;
+        padding: 1rem;
+        border-radius: 10px;
+        text-decoration: none;
+        animation-duration: 1.5s;
+        animation-name: changewidth;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    
+}

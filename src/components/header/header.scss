@@ -1,0 +1,24 @@
+.header {
+    background-color: #165572;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        color: #D4DCE0;
+    }
+
+}
+
+.nav__link {
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #D4DCE0
+
+}
+
+.active {
+    font-weight: 700;
+}
+
