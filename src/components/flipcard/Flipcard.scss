@@ -1,0 +1,88 @@
+@use "../../mixins" as *;
+
+.flip__image {
+    width:100%;
+    height:100%;
+    border-radius: 10px;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    animation: flipY 6s infinite;
+    animation-timing-function:linear;
+    width: 5rem;
+    padding:0.1rem;
+    height: 7rem;
+    background-image: linear-gradient(#165572, black);
+    border-radius: 10px;
+
+    @include tablet {
+        height: 11rem;
+        width:8rem;
+    
+        
+    }
+
+  }
+
+
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    transition: 1s;
+    transition-timing-function: linear;
+	-webkit-transform-style: preserve-3d;
+	position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  @keyframes flipX{
+    from {
+        -webkit-transform: rotateX(180deg);
+    }
+    
+    to {
+        -webkit-transform: rotateX(-180deg);
+    }
+    
+}
+@keyframes flipY{
+    from {
+        -webkit-transform: rotateY(180deg);
+    }
+    
+    to {
+        -webkit-transform: rotateY(-180deg);
+    }
+    
+}
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    -webkit-backface-visibility: hidden;
+	left: 0;
+	top: 0;
+	text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    position: absolute;
+    -webkit-transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+  }
